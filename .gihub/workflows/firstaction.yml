@@ -1,1 +1,21 @@
+name: Trigger on New Issue
 
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  issue-created:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Print Issue Information
+        run: |
+          echo "Thanks for raising this issue, our contributors will look into it!"
+          echo "Title: ${{ github.event.issue.title }}"
+          echo "Number: ${{ github.event.issue.number }}"
+          echo "Author: ${{ github.event.issue.user.login }}"
