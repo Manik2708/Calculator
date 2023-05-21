@@ -15,8 +15,13 @@ jobs:
 
       - name: Print Issue Information
         run: |
-        echo "![Screenshot](.github/workflows/myimage.webp)" >> issue.md
           echo "Thanks for raising this issue, our contributors will look into it!"
           echo "Title: ${{ github.event.issue.title }}"
           echo "Number: ${{ github.event.issue.number }}"
           echo "Author: ${{ github.event.issue.user.login }}"
+          echo "![Screenshot](.github/workflows/myimage.webp)" >> issue.md
+          git config --global user.name "Your Name"
+          git config --global user.email "your.email@example.com"
+          git add issue.md
+          git commit -m "Add screenshot to issue"
+          git push
