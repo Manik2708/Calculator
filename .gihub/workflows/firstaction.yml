@@ -15,6 +15,7 @@ jobs:
 
       - name: Print Issue Information
         run: |
+        echo "![Screenshot](.github/workflows/myimage.webp)" >> issue.md
           echo "Thanks for raising this issue, our contributors will look into it!"
           echo "Title: ${{ github.event.issue.title }}"
           echo "Number: ${{ github.event.issue.number }}"
