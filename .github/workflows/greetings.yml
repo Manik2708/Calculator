@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "THANKS FOR  THE ISSUE, OUR CONTRIBUTERS WILL LOOK INTO IT!"
+        pr-message: "GREAT TRY! YOUR HAVE GIVEN YOUR BEST, NOW WE WILL LOOK WHETHER IT CAN BE MERGED, HAVE PATIENCE!"
